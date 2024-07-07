@@ -48,7 +48,7 @@
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search" id="myInput" oninput="myFunction()">
+              <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search" id="myInput" oninput="Search()">
               <!--<button class="btn btn-outline-success" onclick="myFunction()">Search</button>-->
             </form>
           </div>
@@ -211,7 +211,7 @@
         </footer>
       </div>
     <script>
-        function myFunction() {
+        function articlesSearch() {
           // Declare variables
           var input, filter, ul, li, a, i, txtValue;
           input = document.getElementById('myInput');
@@ -229,6 +229,30 @@
               li[i].classList.replace("d-flex","d-none")
             }
           }
+        }
+          function BooksSearch() {
+          // Declare variables
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("blog2");
+          li = ul.getElementsByClassName("col");
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("h5")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].classList.replace("d-none"||"d-flex","d-flex")
+            } else {
+              li[i].classList.replace("d-flex","d-none")
+            }
+          }
+        }
+
+        function Search(){
+          articlesSearch();
+          BooksSearch();
         }
       </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
